@@ -98,6 +98,31 @@ public class CircularSinglyLL {
         tail = curr;
     }
 
+    public void search(String item) {
+        Node curr = head;
+        int index = 0;
+        int found = 0;
+        if (head.data.equals(item)) {
+            found++;
+            System.out.println("Found at " + index);
+        }
+
+        while (curr.next != head) {
+
+            if (curr.data.equals(item)) {
+                found++;
+                System.out.println("Found at " + index);
+                return;
+            }
+            curr = curr.next;
+            index++;
+        }
+        if (found == 0) {
+            System.out.println("Element not found");
+        }
+
+    }
+
     public static void main(String[] args) {
 
         CircularSinglyLL list = new CircularSinglyLL();
@@ -117,6 +142,10 @@ public class CircularSinglyLL {
 
         list.deleteLast();
         System.out.println();
+        list.printList();
+
+        list.search("Sachin");
+
         list.printList();
 
     }
