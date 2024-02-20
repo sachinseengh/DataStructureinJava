@@ -1,6 +1,12 @@
 public class LL {
 
     Node head;
+    private int size = 0;
+
+    // for Size
+    LL() {
+        this.size = 0;
+    }
 
     class Node {
         String data;
@@ -9,6 +15,7 @@ public class LL {
         Node(String data) {
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -57,7 +64,7 @@ public class LL {
             System.out.print("Linked list is empty");
             return;
         }
-
+        size--;
         head = head.next;
     }
 
@@ -66,6 +73,11 @@ public class LL {
             System.out.print("Linked list is empty");
             return;
         }
+        size--;
+        if (head.next == null) {
+            head = null;
+        }
+
         Node curr = head;
         Node last = head.next;
         while (last.next != null) {
@@ -74,6 +86,10 @@ public class LL {
         }
         curr.next = null;
 
+    }
+
+    public int getSize() {
+        return this.size;
     }
 
     public static void main(String[] args) {
@@ -88,6 +104,14 @@ public class LL {
         list.deleteLast();
         System.out.println("\n");
         list.printList();
+        System.out.println();
+
+        System.out.println(list.getSize());
+        list.addFirst("sachin");
+        list.printList();
+        System.out.println();
+        System.out.println(list.getSize());
+        ;
 
     }
 }
