@@ -92,6 +92,27 @@ public class LL {
         return this.size;
     }
 
+    public void search(String item) {
+        Node curr = head;
+        int index = 0;
+        int found = 0;
+
+        while (curr.next != null) {
+
+            if (curr.data.equals(item)) {
+                found++;
+                System.out.println("Found at " + index);
+                return;
+            }
+            curr = curr.next;
+            index++;
+        }
+        if (found == 0) {
+            System.out.println("Element not found");
+        }
+
+    }
+
     public static void main(String[] args) {
         LL list = new LL();
         list.addFirst("a");
@@ -111,7 +132,8 @@ public class LL {
         list.printList();
         System.out.println();
         System.out.println(list.getSize());
-        ;
+
+        list.search("singh");
 
     }
 }
