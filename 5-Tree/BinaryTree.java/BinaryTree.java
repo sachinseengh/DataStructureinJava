@@ -73,6 +73,7 @@ public class BinaryTree {
         // inorder(root);
 
         postorder(root);
+        postorder(root);
 
     }
 
